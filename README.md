@@ -14,7 +14,7 @@
 
 # 使い方
 
-```nodejs
+```node
 
 /** テストするGoogle Assistaに統合されている、DialogflowのProject ID */
 process.env.DIALOGFLOW_PROJECT_ID = '** Set your testing dialogflow project id. **';
