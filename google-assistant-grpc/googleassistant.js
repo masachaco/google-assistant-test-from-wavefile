@@ -40,7 +40,6 @@ class GoogleAssistant {
     constructor() {
         process.env.GOOGLE_APPLICATION_CREDENTIALS =  path.resolve(process.env.DIALOGFLOW_CREDENTIAL);
         const credentialJson = require(path.resolve(process.env.DEVICE_CREDENTIAL));
-
         const credentials = {
             client_id: credentialJson.client_id,
             client_secret: credentialJson.client_secret,
@@ -124,7 +123,7 @@ class GoogleAssistant {
     sendWave(conversation, request, query) {
         // Unit8 Array
         console.log("Loading wave file... : " + query);
-        const buffer = fs.readFileSync(query);
+        const buffer = fs.readFileSync(path.resolve(process.env.WAVE_FILES_PATH + query));
 
         const sendBuffer = (currentBuff) => {
             const buf = buffer.slice(currentBuff, currentBuff + 3200);
