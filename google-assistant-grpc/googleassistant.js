@@ -39,12 +39,12 @@ const sleep = (execute, waitTimeMiliSec) => {
 class GoogleAssistant {
     constructor() {
         process.env.GOOGLE_APPLICATION_CREDENTIALS =  path.resolve(process.env.DIALOGFLOW_CREDENTIAL);
-        const credentials = require(path.resolve(process.env.DEVICE_CREDENTIAL));
+        const credentialJson = require(path.resolve(process.env.DEVICE_CREDENTIAL));
 
         const credentials = {
-            client_id: crendential.client_id,
-            client_secret: crendential.client_secret,
-            refresh_token: crendential.refresh_token,
+            client_id: credentialJson.client_id,
+            client_secret: credentialJson.client_secret,
+            refresh_token: credentialJson.refresh_token,
             type: "authorized_user"
         };
 
