@@ -59,3 +59,11 @@ typings/
 
 # next.js build output
 .next
+
+node_modules
+package-lock.json
+devicecredentials.json
+credentials/
+.DS_Store
+test-wave-files/
+test/
