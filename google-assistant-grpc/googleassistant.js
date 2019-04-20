@@ -38,6 +38,9 @@ const sleep = (execute, waitTimeMiliSec) => {
 
 class GoogleAssistant {
     constructor(crendential) {
+        process.env.GOOGLE_APPLICATION_CREDENTIALS =  path.resolve(process.env.DIALOGFLOW_CREDENTIAL);
+        const credentials = require(path.resolve(process.env.DEVICE_CREDENTIAL));
+
         const credentials = {
             client_id: crendential.client_id,
             client_secret: crendential.client_secret,
@@ -79,8 +82,6 @@ class GoogleAssistant {
     }
 
     createClient_() {
-        process.env.GOOGLE_APPLICATION_CREDENTIALS =  path.resolve(process.env.DIALOGFLOW_CREDENTIAL);
-        const credentials = require(path.resolve(process.env.DEVICE_CREDENTIAL));
         const sslCreds = grpc.credentials.createSsl();
         // https://github.com/google/google-auth-library-nodejs/blob/master/ts/lib/auth/refreshclient.ts
         const auth = new GoogleAuth();
