@@ -78,7 +78,9 @@ class GoogleAssistant {
         return audioInConfig;
     }
 
-    createClient_(credentials) {
+    createClient_() {
+        process.env.GOOGLE_APPLICATION_CREDENTIALS =  path.resolve(process.env.DIALOGFLOW_CREDENTIAL);
+        const credentials = require(path.resolve(process.env.DEVICE_CREDENTIAL));
         const sslCreds = grpc.credentials.createSsl();
         // https://github.com/google/google-auth-library-nodejs/blob/master/ts/lib/auth/refreshclient.ts
         const auth = new GoogleAuth();
