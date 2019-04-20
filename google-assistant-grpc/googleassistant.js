@@ -92,7 +92,7 @@ class GoogleAssistant {
         return client;
     }
 
-    async startUp() {
+    async setUp() {
         this.intentNameFromIntentId = await require('./dialogflow.js')();
     }
 
@@ -103,7 +103,7 @@ class GoogleAssistant {
         return;
     }
 
-    exitConversation(exitTexts = ["終了"]) {
+    shutdownConversation(exitTexts = ["終了"]) {
         return this.initConversation(exitTexts);
     }
 
