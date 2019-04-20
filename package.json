@@ -7,7 +7,7 @@
     "directories": {
         "test": "test"
     },
-    "name": "google-assistant-wave-test",
+    "name": "google-assistant-test-from-wavefile",
     "version": "0.0.1",
     "dependencies": {
         "actions-on-google-testing": "^0.2.4",
