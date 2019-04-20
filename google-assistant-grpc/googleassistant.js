@@ -37,7 +37,7 @@ const sleep = (execute, waitTimeMiliSec) => {
 
 
 class GoogleAssistant {
-    constructor(crendential) {
+    constructor() {
         process.env.GOOGLE_APPLICATION_CREDENTIALS =  path.resolve(process.env.DIALOGFLOW_CREDENTIAL);
         const credentials = require(path.resolve(process.env.DEVICE_CREDENTIAL));
 
