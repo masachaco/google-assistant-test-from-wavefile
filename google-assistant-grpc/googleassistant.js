@@ -91,7 +91,7 @@ class GoogleAssistant {
     }
 
     async startUp() {
-        this.intentNameFromIntentId = await require('./google-assistant-grpc/dialogflow')();
+        this.intentNameFromIntentId = await require('./dialogflow.js')();
     }
 
     async initConversation(exitFlowTextTexts = ["終了"]) {
