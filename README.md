@@ -1,8 +1,8 @@
-# 音声ファイルから Google Assistantを自動テストするやつ
+# 音声ファイルから Google Assistant アプリを自動テストするやつ
 
 # 注意事項
 
-これは作成途中のα版未満で、実運用には使用できません。
+これは作成途中のα版未満で、実運用には向きません。
 
 # 概要
 
@@ -13,6 +13,19 @@
 また、録音した音声から、どのインテントに落ちたかテストできるようにしました。
 
 # 使い方
+
+長いのでQiitaに記載しました。
+[https://qiita.com/masachaco/items/17983f4aa1656aae19fa](https://qiita.com/masachaco/items/17983f4aa1656aae19fa)
+
+## wavファイルのフォーマット
+
+リクエストに使用するwavファイルは以下の形式である必要があります。
+
+- WAV (Microsoft) 16bit PCM符号あり
+- モノラル
+- サンプリングレート 16000Hz
+
+## 使用例
 
 ```node
 
@@ -35,8 +48,8 @@ process.env.DEVICE_CREDENTIAL = './credentials/test-credentials.json';
  */
 process.env.WAVE_FILES_PATH = './waves/';
 
-const GoogleAssistant = require('google-assistant-test-from-wavefile');
-const assistant = new GoogleAssistant();
+const GoogleAssistantWavTest = require('google-assistant-test-from-wavefile');
+const assistant = new GoogleAssistantWavTest();
 
 // テストに時間がかかるのでタイムアウトの時間を延長
 jest.setTimeout(30000);
@@ -58,14 +71,14 @@ afterAll(async () => {
 
 test('Default Welcome Intentが呼ばれることをテストする', async () => {
     // ./wave/call_action.wav の音声でGoogle Assistantにリクエストすると、Default Welcome Intent が呼ばれることをテスト
-    expect(await assistant.callIntentByAudio("call_action.wav")).toBe('Default Welcome Intent');
+    expect(await assistant.callIntentByAudio('call_action.wav')).toBe('Default Welcome Intent');
 
     // ./test-wave-files/hello.wav の音声でGoogle Assistantにリクエストすると、HelloIntent が呼ばれることをテスト
-    expect(await assistant.callIntentByAudio("hello.wav")).toBe('HelloIntent');
+    expect(await assistant.callIntentByAudio('hello.wav')).toBe('HelloIntent');
 });
 
 ```
 
 # ライセンス
 
-[LISENCE](https://github.com/masachaco/assistant-sdk-nodejs/blob/master/LICENSE) の通りです。
+[LISENCE](https://github.com/masachaco/google-assistant-test-from-wavefile/blob/master/LICENSE) の通りです。

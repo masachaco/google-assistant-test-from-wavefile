@@ -63,7 +63,7 @@ typings/
 node_modules
 package-lock.json
 devicecredentials.json
-credentials/
 .DS_Store
 test-wave-files/
 test/
+credentials/
