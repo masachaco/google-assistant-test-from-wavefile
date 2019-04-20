@@ -35,7 +35,7 @@ process.env.DEVICE_CREDENTIAL = './credentials/test-credentials.json';
  */
 process.env.WAVE_FILES_PATH = './waves/';
 
-const GoogleAssistant = require('google-assistant-wave-test');
+const GoogleAssistant = require('google-assistant-test-from-wavefile');
 const assistant = new GoogleAssistant();
 
 // テストに時間がかかるのでタイムアウトの時間を延長
