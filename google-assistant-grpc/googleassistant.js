@@ -112,8 +112,12 @@ class GoogleAssistant {
     }
 
     async callIntentByAudio(filePath) {
-        const response = await this.assist(filePath, true)
-        return this.intentNameFromIntentId[response.matchedIntentId];
+        const response = await this.assist(filePath, true);
+        
+        return {
+            intent_id: this.intentNameFromIntentId[response.matchedIntentId],
+            text: response.text
+        };
     }
 
     assistByText(query) {
